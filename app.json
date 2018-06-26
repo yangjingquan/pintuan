@@ -19,7 +19,8 @@
     "pages/logistic/logistic",
     "pages/share/share",
     "pages/index/group_pro_detail/pro_detail",
-    "pages/orders_detail/orders_detail"
+    "pages/orders_detail/orders_detail",
+    "pages/test/test"
   ],
 
   "window": {

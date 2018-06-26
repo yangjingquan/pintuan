@@ -86,7 +86,10 @@ App({
                   content: '只有授权后才能进行后续操作哦',
                   success: function(res) {
                     if (res.confirm) {
-                      that.getUserInfo(loginStatus)
+                      // that.getUserInfo(loginStatus)
+                      wx.navigateTo({
+                        url: '/pages/test/test',
+                      })
                     }else{
                       
                     } 

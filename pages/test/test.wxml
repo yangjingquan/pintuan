@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+<view>注意，这个仅仅是方便在测试环境下测试使用，正式环境下不要使用，等微信更新了正式接口后再说，目前新方式涉及到底层API。</view>
+<view>如果在测试中有一些问题比如用户信息丢失，可以在正式版下再侧，目前测试版下使用的这个授权方式不稳定</view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
