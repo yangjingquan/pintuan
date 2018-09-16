@@ -1,5 +1,6 @@
 var app = getApp()
-var imageUtil = require('../../../utils/util.js');  
+var imageUtil = require('../../../utils/util.js');
+var checkLogin = require('../../../utils/util.js'); 
 Page({
     data: {
       animationData: "",
@@ -63,8 +64,8 @@ Page({
     //单独购买
     buySingle: function (e) {
         var that = this
-        if (!app.globalData.userInfo) {
-          app.getUserInfo(true)
+      if (!app.globalData.userInfo && checkLogin.checkLogin()) {
+          app.getUserInfo()
         } else {
           var pro_id = that.data.pro_id
           var from = 'single'
@@ -103,8 +104,8 @@ Page({
     //一键开团
     buyByGroup: function (e) {
       var that = this
-      if (!app.globalData.userInfo) {
-        app.getUserInfo(true)
+      if (!app.globalData.userInfo && checkLogin.checkLogin()) {
+        app.getUserInfo()
       } else {
         var pro_id = that.data.pro_id
         var from = 'group'
@@ -350,7 +351,7 @@ Page({
     //一键参团
     buyByJoinGroup: function (e) {
       var that = this
-      if (!app.globalData.userInfo) {
+      if (!app.globalData.userInfo && checkLogin.checkLogin()) {
         app.getUserInfo(true)
       } else {
         if (that.data.mem_id == app.globalData.openid){

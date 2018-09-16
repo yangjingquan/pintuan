@@ -1,6 +1,7 @@
 //mine.js
 //获取应用实例
 var app = getApp()
+var checkLogin = require('../../utils/util.js');
 Page({
   data: {
     userInfo: {}
@@ -13,7 +14,7 @@ Page({
   },
   onShow: function () {
     var that = this
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       that.setData({
@@ -25,7 +26,7 @@ Page({
 
   },
   myOrderTap: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       wx.navigateTo({
@@ -35,7 +36,7 @@ Page({
 
   },
   myAddressTap: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       wx.navigateTo({
@@ -44,7 +45,7 @@ Page({
     }
   },
   getService: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       wx.navigateTo({
@@ -53,7 +54,7 @@ Page({
     }
   },
   myAcode: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       wx.navigateTo({
@@ -62,7 +63,7 @@ Page({
     }
   },
   getRecOrders: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       wx.navigateTo({
@@ -71,7 +72,7 @@ Page({
     }
   },
   getMyIncome: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       //获取可提现金额和提现中金额
@@ -94,7 +95,7 @@ Page({
     }
   },
   replyTixian: function () {
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.userInfo && checkLogin.checkLogin()) {
       app.getUserInfo(true)
     } else {
       //获取可提现金额和提现中金额

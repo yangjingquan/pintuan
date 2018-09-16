@@ -1,5 +1,6 @@
 var app = getApp()
-var imageUtil = require('../../../utils/util.js');  
+var imageUtil = require('../../../utils/util.js'); 
+var checkLogin = require('../../../utils/util.js'); 
 Page({
     data: {
       animationData: "",
@@ -64,7 +65,7 @@ Page({
     //参团购买
     buyByJoinGroup: function (e) {
       var that = this
-      if (!app.globalData.userInfo) {
+      if (!app.globalData.userInfo && checkLogin.checkLogin()) {
         app.getUserInfo(true)
       } else {
         var pro_id = that.data.pro_id
